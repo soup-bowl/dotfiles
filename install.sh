@@ -10,6 +10,7 @@ if test ! -e /ide/bin/remote-cli/gp-code || test ! -v GITPOD_REPO_ROOT; then {
 if [[ ! -z $GNUGPG  ]]; then
     rm -rf ~/.gnupg;
     (cd ~ ; echo $GNUGPG | base64 -d | tar --no-same-owner -xzvf -);
+    git config --global commit.gpgsign true;
 fi
 
 # Setup Fish.
