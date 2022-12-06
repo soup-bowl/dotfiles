@@ -7,3 +7,5 @@ This is setup to detect a GPG directory stored as a base64-encoded string in a *
 ```bash
 tar -czvf - ./.gnupg | base64 -w 0
 ```
+
+Inspired by [this comment](https://github.com/gitpod-io/gitpod/issues/666#issuecomment-534347856) on a [Gitpod issue](https://github.com/gitpod-io/gitpod/issues/666) regarding GPG signing.
