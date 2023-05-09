@@ -9,15 +9,15 @@ if [[ ! -z $GNUGPG  ]]; then
     git config --global commit.gpgsign true;
 fi
 
-# Setup Fish.
-sudo apt-get install -y fish zsh;
-
-# Setup ZSH.
-# Based on https://github.com/trumbitta/dotfiles/blob/main/install.sh
-sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended;
-
 # Gitpod Only.
 if test ! -e /ide/bin/remote-cli/gp-code || test ! -v GITPOD_REPO_ROOT; then
+    # Setup Fish.
+    sudo apt-get install -y fish zsh;
+
+    # Setup ZSH.
+    # Based on https://github.com/trumbitta/dotfiles/blob/main/install.sh
+    sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)" "" --unattended;
+
     tee -a $HOME/.zshrc <<'EOF'
     for i in $(ls -A $HOME/.bashrc.d/); do source $HOME/.bashrc.d/$i; done
 
