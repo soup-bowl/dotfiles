@@ -5,8 +5,8 @@ set -eu;
 # Setup SSH commit signing.
 if [[ ! -z $SSHSIGN_PUB  ]]; then
     mkdir -p $HOME/.sshgitsigning;
-    echo -n "$SSHSIGN_PUB" | base64 --decode > $HOME/.sshgitsigning/id_rsa.pub;
-    echo -n "$SSHSIGN_PRV" | base64 --decode > $HOME/.sshgitsigning/id_rsa;
+    echo -n "$SSHSIGN_PUB" | base64 --decode > $HOME/.gitsign/id_rsa.pub;
+    echo -n "$SSHSIGN_PRV" | base64 --decode > $HOME/.gitsign/id_rsa;
     git config --global gpg.format ssh;
     git config --global user.signingkey "$HOME/.gitsign/id_rsa.pub";
     git config --global commit.gpgsign true;
